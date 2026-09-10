@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quiz Master</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="top-header">
+
+        <div class="logo">
+            <span>Q</span>
+
+            <div>
+                <h2>Quiz Master</h2>
+                <p>Learn • Practice • Improve</p>
+            </div>
+        </div>
+
+        <button id="theme-btn" class="theme-btn">
+            🌙
+        </button>
+
+    </header>
+
+
+    <!-- ================= AUTHENTICATION ================= -->
+
+    <section id="auth-screen">
+
+        <!-- LOGIN -->
+
+        <div id="login-box" class="auth-box">
+
+            <div class="auth-icon">
+                🔐
+            </div>
+
+            <p class="small-title">WELCOME BACK</p>
+
+            <h1>Login to Quiz Master</h1>
+
+            <p class="auth-description">
+                Continue your learning journey and test your knowledge.
+            </p>
+
+
+            <div class="form-group">
+
+                <label for="login-username">
+                    Username
+                </label>
+
+                <input
+                    type="text"
+                    id="login-username"
+                    placeholder="Enter your username"
+                    autocomplete="username"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="login-password">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="login-password"
+                    placeholder="Enter your password"
+                    autocomplete="current-password"
+                >
+
+            </div>
+
+
+            <p id="login-error" class="auth-error"></p>
+
+
+            <button
+                id="login-btn"
+                class="auth-btn">
+                Login →
+            </button>
+
+
+            <p class="auth-switch">
+                Don't have an account?
+                <button id="show-signup-btn">
+                    Create Account
+                </button>
+            </p>
+
+        </div>
+
+
+        <!-- SIGN UP -->
+
+        <div id="signup-box" class="auth-box hide">
+
+            <div class="auth-icon">
+                ✨
+            </div>
+
+            <p class="small-title">CREATE ACCOUNT</p>
+
+            <h1>Join Quiz Master</h1>
+
+            <p class="auth-description">
+                Create your account and start improving your knowledge.
+            </p>
+
+
+            <!-- USERNAME -->
+
+            <div class="form-group">
+
+                <label for="signup-username">
+                    Username
+                </label>
+
+                <input
+                    type="text"
+                    id="signup-username"
+                    placeholder="Choose a username"
+                    autocomplete="username"
+                >
+
+            </div>
+
+
+            <!-- DATE OF BIRTH -->
+
+            <div class="form-group">
+
+                <label for="signup-dob">
+                    Date of Birth
+                </label>
+
+                <input
+                    type="date"
+                    id="signup-dob"
+                >
+
+            </div>
+
+
+            <!-- PASSWORD -->
+
+            <div class="form-group">
+
+                <label for="signup-password">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="signup-password"
+                    placeholder="Create a password"
+                    autocomplete="new-password"
+                >
+
+            </div>
+
+
+            <!-- CONFIRM PASSWORD -->
+
+            <div class="form-group">
+
+                <label for="signup-confirm-password">
+                    Confirm Password
+                </label>
+
+                <input
+                    type="password"
+                    id="signup-confirm-password"
+                    placeholder="Confirm your password"
+                    autocomplete="new-password"
+                >
+
+            </div>
+
+
+            <p id="signup-error" class="auth-error"></p>
+
+
+            <button
+                id="signup-btn"
+                class="auth-btn">
+                Create Account →
+            </button>
+
+
+            <p class="auth-switch">
+
+                Already have an account?
+
+                <button id="show-login-btn">
+                    Login
+                </button>
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= DASHBOARD ================= -->
+
+    <main id="dashboard-screen" class="hide">
+
+        <section class="welcome-section">
+
+            <p class="small-title">
+                WELCOME BACK
+            </p>
+
+            <h1>
+                Hello,
+                <span id="welcome-username">
+                    User
+                </span> 👋
+            </h1>
+
+            <p class="welcome-text">
+                Test your knowledge, practice consistently,
+                and improve your skills every day.
+            </p>
+
+        </section>
+
+
+        <!-- ================= STATS ================= -->
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🏆
+                </div>
+
+                <div>
+
+                    <p>
+                        Total Attempts
+                    </p>
+
+                    <h3 id="total-attempts">
+                        0
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    📚
+                </div>
+
+                <div>
+
+                    <p>
+                        Questions Solved
+                    </p>
+
+                    <h3 id="questions-solved">
+                        0
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    📈
+                </div>
+
+                <div>
+
+                    <p>
+                        Best Accuracy
+                    </p>
+
+                    <h3 id="best-accuracy">
+                        0%
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= TEST MODES ================= -->
+
+        <section class="section">
+
+            <div class="section-heading">
+
+                <h2>
+                    Choose Test Mode
+                </h2>
+
+                <p>
+                    Practice at your own pace or challenge
+                    yourself with a mock test.
+                </p>
+
+            </div>
+
+
+            <div class="test-mode-grid">
+
+
+                <!-- PRACTICE -->
+
+                <div class="mode-card">
+
+                    <div class="mode-icon">
+                        🎯
+                    </div>
+
+                    <div class="mode-content">
+
+                        <span class="mode-label">
+                            LEARNING MODE
+                        </span>
+
+                        <h3>
+                            Practice Test
+                        </h3>
+
+                        <p>
+                            Learn while you practice. Review
+                            your mistakes and understand the answers.
+                        </p>
+
+                        <button
+                            id="practice-btn"
+                            class="mode-btn">
+                            Start Practice →
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MOCK -->
+
+                <div class="mode-card">
+
+                    <div class="mode-icon">
+                        ⏱️
+                    </div>
+
+                    <div class="mode-content">
+
+                        <span class="mode-label">
+                            CHALLENGE MODE
+                        </span>
+
+                        <h3>
+                            Mock Test
+                        </h3>
+
+                        <p>
+                            Test yourself under time pressure
+                            and measure your performance.
+                        </p>
+
+                        <button
+                            id="mock-btn"
+                            class="mode-btn">
+                            Start Mock Test →
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SUBJECTS ================= -->
+
+        <section class="section">
+
+            <div class="section-heading">
+
+                <h2>
+                    Choose a Subject
+                </h2>
+
+                <p>
+                    Select a subject to start your test.
+                </p>
+
+            </div>
+
+
+            <div class="subject-grid">
+
+
+                <!-- PYTHON -->
+
+                <div
+                    class="subject-card"
+                    data-subject="Python">
+
+                    <div class="subject-icon">
+                        🐍
+                    </div>
+
+                    <h3>
+                        Python
+                    </h3>
+
+                    <p>
+                        Programming & Fundamentals
+                    </p>
+
+                    <div class="subject-score">
+
+                        Best Score:
+                        <span data-score="Python">
+                            0%
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- JAVA -->
+
+                <div
+                    class="subject-card"
+                    data-subject="Java">
+
+                    <div class="subject-icon">
+                        ☕
+                    </div>
+
+                    <h3>
+                        Java
+                    </h3>
+
+                    <p>
+                        Programming & OOP
+                    </p>
+
+                    <div class="subject-score">
+
+                        Best Score:
+                        <span data-score="Java">
+                            0%
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- HTML -->
+
+                <div
+                    class="subject-card"
+                    data-subject="HTML">
+
+                    <div class="subject-icon">
+                        🌐
+                    </div>
+
+                    <h3>
+                        HTML
+                    </h3>
+
+                    <p>
+                        Web Development
+                    </p>
+
+                    <div class="subject-score">
+
+                        Best Score:
+                        <span data-score="HTML">
+                            0%
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DSA -->
+
+                <div
+                    class="subject-card"
+                    data-subject="DSA">
+
+                    <div class="subject-icon">
+                        🧠
+                    </div>
+
+                    <h3>
+                        DSA
+                    </h3>
+
+                    <p>
+                        Data Structures & Algorithms
+                    </p>
+
+                    <div class="subject-score">
+
+                        Best Score:
+                        <span data-score="DSA">
+                            0%
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LOGICAL -->
+
+                <div
+                    class="subject-card"
+                    data-subject="Logical">
+
+                    <div class="subject-icon">
+                        🔎
+                    </div>
+
+                    <h3>
+                        Logical
+                    </h3>
+
+                    <p>
+                        Logical Reasoning
+                    </p>
+
+                    <div class="subject-score">
+
+                        Best Score:
+                        <span data-score="Logical">
+                            0%
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- VOCABULARY -->
+
+                <div
+                    class="subject-card"
+                    data-subject="Vocabulary">
+
+                    <div class="subject-icon">
+                        📖
+                    </div>
+
+                    <h3>
+                        Vocabulary
+                    </h3>
+
+                    <p>
+                        English Vocabulary
+                    </p>
+
+                    <div class="subject-score">
+
+                        Best Score:
+                        <span data-score="Vocabulary">
+                            0%
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- C -->
+
+                <div
+                    class="subject-card"
+                    data-subject="C">
+
+                    <div class="subject-icon">
+                        💻
+                    </div>
+
+                    <h3>
+                        C
+                    </h3>
+
+                    <p>
+                        C Programming
+                    </p>
+
+                    <div class="subject-score">
+
+                        Best Score:
+                        <span data-score="C">
+                            0%
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- APTITUDE -->
+
+                <div
+                    class="subject-card"
+                    data-subject="Aptitude">
+
+                    <div class="subject-icon">
+                        📊
+                    </div>
+
+                    <h3>
+                        Aptitude
+                    </h3>
+
+                    <p>
+                        Quantitative Aptitude
+                    </p>
+
+                    <div class="subject-score">
+
+                        Best Score:
+                        <span data-score="Aptitude">
+                            0%
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= LOGOUT ================= -->
+
+        <button
+            id="logout-btn"
+            class="logout-btn">
+
+            🚪 Logout
+
+        </button>
+
+    </main>
+
+
+    <!-- ================= SETUP SCREEN ================= -->
+
+    <section id="setup-screen" class="hide">
+
+        <div class="setup-header">
+
+            <button
+                id="setup-back-btn"
+                class="back-btn">
+                ← Back
+            </button>
+
+            <div>
+
+                <h1 id="setup-title">
+                    Configure Your Test
+                </h1>
+
+                <p id="setup-description">
+                    Choose your subject, number of questions
+                    and difficulty.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- SUBJECT -->
+
+        <div class="setup-card">
+
+            <h3>
+                Select Subject
+            </h3>
+
+            <div class="setup-subject-grid">
+
+
+                <button
+                    class="setup-subject selected"
+                    data-subject="Python">
+                    🐍 Python
+                </button>
+
+
+                <button
+                    class="setup-subject"
+                    data-subject="Java">
+                    ☕ Java
+                </button>
+
+
+                <button
+                    class="setup-subject"
+                    data-subject="HTML">
+                    🌐 HTML
+                </button>
+
+
+                <button
+                    class="setup-subject"
+                    data-subject="DSA">
+                    🧠 DSA
+                </button>
+
+
+                <button
+                    class="setup-subject"
+                    data-subject="Logical">
+                    🔎 Logical
+                </button>
+
+
+                <button
+                    class="setup-subject"
+                    data-subject="Vocabulary">
+                    📖 Vocabulary
+                </button>
+
+
+                <button
+                    class="setup-subject"
+                    data-subject="C">
+                    💻 C
+                </button>
+
+
+                <button
+                    class="setup-subject"
+                    data-subject="Aptitude">
+                    📊 Aptitude
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- QUESTION COUNT -->
+
+        <div class="setup-card">
+
+            <h3>
+                Number of Questions
+            </h3>
+
+            <p class="setup-help">
+                Choose how many questions you want to attempt.
+            </p>
+
+
+            <div class="count-grid">
+
+    <button
+        class="count-btn selected"
+        data-count="10">
+        10
+    </button>
+
+    <button
+        class="count-btn"
+        data-count="15">
+        15
+    </button>
+
+    <button
+        class="count-btn"
+        data-count="20">
+        20
+    </button>
+
+    <button
+        class="count-btn"
+        data-count="25">
+        25
+    </button>
+
+</div>
+
+        </div>
+
+
+        <!-- DIFFICULTY -->
+
+        <div class="setup-card">
+
+            <h3>
+                Select Difficulty
+            </h3>
+
+            <p class="setup-help">
+                Choose the difficulty level for your quiz.
+            </p>
+
+
+            <div class="difficulty-grid">
+
+
+                <button
+                    class="difficulty-btn"
+                    data-difficulty="Easy">
+                    🟢 Easy
+                </button>
+
+
+                <button
+                    class="difficulty-btn"
+                    data-difficulty="Medium">
+                    🟡 Medium
+                </button>
+
+
+                <button
+                    class="difficulty-btn"
+                    data-difficulty="Hard">
+                    🔴 Hard
+                </button>
+
+
+                <button
+                    class="difficulty-btn selected"
+                    data-difficulty="Mixed">
+                    🎯 Mixed
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- BEGIN -->
+
+        <button
+            id="begin-test-btn"
+            class="begin-test-btn">
+
+            Begin Test →
+
+        </button>
+
+    </section>
+
+
+    <!-- ================= QUIZ SCREEN ================= -->
+
+    <section id="quiz-screen" class="hide">
+
+
+        <!-- QUIZ HEADER -->
+
+        <div class="quiz-header">
+
+            <div>
+                <span id="quiz-mode">
+                    Practice
+                </span>
+            </div>
+
+
+            <div>
+
+                Question
+
+                <span id="question-number">
+                    1 / 10
+                </span>
+
+            </div>
+
+
+            <div>
+
+                ⏱️
+
+                <span id="timer">
+                    00:00
+                </span>
+
+            </div>
+
+
+            <div>
+
+                Score:
+
+                <span id="score">
+                    0
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROGRESS -->
+
+        <div class="progress-container">
+
+            <div id="progress-bar"></div>
+
+        </div>
+
+
+        <!-- QUESTION -->
+
+        <div class="question-card">
+
+            <h2 id="question">
+                Question goes here
+            </h2>
+
+        </div>
+
+
+        <!-- ANSWERS -->
+
+        <div id="answer-buttons">
+        </div>
+
+
+        <!-- EXPLANATION -->
+
+        <div
+            id="explanation-box"
+            class="hide">
+
+            <div class="explanation-title">
+                💡 Explanation
+            </div>
+
+            <p id="explanation-text">
+            </p>
+
+        </div>
+
+
+        <!-- NEXT -->
+
+        <button id="next-btn">
+            Next Question →
+        </button>
+
+    </section>
+
+
+    <!-- ================= RESULT SCREEN ================= -->
+
+<section id="result-screen" class="hide">
+
+    <div class="result-icon">
+        🏆
+    </div>
+
+    <h1>
+        Quiz Completed!
+    </h1>
+
+    <p>
+        Here is your performance summary.
+    </p>
+
+    <div id="final-score">
+        0 / 10
+    </div>
+
+    <h2 id="result-percentage">
+        0%
+    </h2>
+
+    <p id="result-message">
+        Keep practicing!
+    </p>
+
+
+    <!-- ================= RESULT BREAKDOWN ================= -->
+
+    <div class="result-breakdown">
+
+        <div class="result-stat">
+
+            <span class="result-stat-icon">
+                ✅
+            </span>
+
+            <div>
+                <p>Correct</p>
+                <h3 id="result-correct">0</h3>
+            </div>
+
+        </div>
+
+
+        <div class="result-stat">
+
+            <span class="result-stat-icon">
+                ❌
+            </span>
+
+            <div>
+                <p>Wrong</p>
+                <h3 id="result-wrong">0</h3>
+            </div>
+
+        </div>
+
+
+        <div class="result-stat">
+
+            <span class="result-stat-icon">
+                🎯
+            </span>
+
+            <div>
+                <p>Accuracy</p>
+                <h3 id="result-accuracy">0%</h3>
+            </div>
+
+        </div>
+
+
+        <div class="result-stat">
+
+            <span class="result-stat-icon">
+                ⏱️
+            </span>
+
+            <div>
+                <p>Time Taken</p>
+                <h3 id="result-time">00:00</h3>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= PERFORMANCE ================= -->
+
+    <div class="performance-card">
+
+        <h3>
+            📊 Performance
+        </h3>
+
+        <p id="performance-text">
+            Keep practicing to improve your score.
+        </p>
+
+    </div>
+
+    <!-- ================= RESULT ACTIONS ================= -->
+
+<div class="result-actions">
+
+    <button id="restart-btn">
+        🔄 Try Again
+    </button>
+
+    <button id="dashboard-btn">
+        🏠 Dashboard
+    </button>
+
+</div>
+
+
+<!-- ================= REVIEW ANSWERS ================= -->
+
+<div id="review-section" class="review-section">
+
+    <h2>
+        📝 Review Answers
+    </h2>
+
+    <div id="review-container"></div>
+
+</div>
+
+</section>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
